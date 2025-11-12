@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AuditLab Login – Live Preview Redirect</title>
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color-scheme: dark;
+        background: #050917;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+      }
+      main {
+        max-width: 40rem;
+        text-align: center;
+        display: grid;
+        gap: 1rem;
+      }
+      code {
+        font-size: 0.9rem;
+        word-break: break-all;
+      }
+      button {
+        appearance: none;
+        border: none;
+        border-radius: 999px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, #6ed8ff, #9a6bff);
+        color: #050917;
+        cursor: pointer;
+      }
+      button:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.6);
+        outline-offset: 3px;
+      }
+      .actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      a {
+        color: #9a6bff;
+      }
+      .inline-link {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #6ed8ff, #9a6bff);
+        color: #050917;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 12px 30px rgba(6, 15, 39, 0.45);
+      }
+      .inline-link:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.6);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Opening the AuditLab preview…</h1>
+      <p id="status">If your browser does not open automatically, use the options below.</p>
+      <div class="actions">
+        <button type="button" id="open-btn">Open the login preview</button>
+        <a id="download-link" href="live-preview-url.txt" download>Download the data URL</a>
+      </div>
+      <p>
+        You can always copy the inline link below if everything else is blocked.
+      </p>
+      <code id="inline-url"></code>
+      <p>
+        Or click the link below to open the login directly from this page.
+      </p>
+      <a id="inline-link" class="inline-link" href="#" target="_blank" rel="noopener noreferrer"
+        >Open the AuditLab login now</a
+      >
+    </main>
+    <script id="preview-data" type="application/json">
+{
+  "segments": [
+    "data:text/html;charset=utf-8,%3C!doctype%20html%3E%3Chtml%20lang%3D%22en%22%3E%3Chead%3E%3Cmeta%20charset%3D%22utf-8%22%20%2F%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1%22%20%2F%3E%3Ctitle%3EAuditLab%20Portal%20Login%3C%2Ftitle%3E%3Clink%20rel%3D%22preconnect%22%20href%3D%22https%3A%2F%2Ffonts.googleapis.com%22%20%2F%3E%3Clink%20rel%3D%22preconnect%22%20href%3D%22https%3A%2F%2Ffonts.gstatic.com%22%20crossorigin%20%2F%3E%3Clinkhref%3D%22https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DOutfit%3Awght%40400%3B500%3B600%26display%3Dswap%22rel%3D%22stylesheet%22%2F%3E%3Cstyle%3E%3Aroot%20%7Bfont-family%3A%20'Outfit'%2C%20system-ui%2C%20-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20sans-serif%3Bcolor-scheme%3A%20dark%3Bcolor%3A%20rgba(255%2C%20255%2C%20255%2C%200.87)%3Bbackground-color%3A%20%23060b23%3Bline-height%3A%201.5%3Bfont-weight%3A%20400%3B%7D*%2C*%3A%3Abefore%2C*%3A%3Aafter%20%7Bbox-sizing%3A%20border-box%3B%7Dbody%20%7Bmargin%3A%200%3Bmin-height%3A%20100vh%3Bbackground%3A%20radial-gradient(circle%20at%2020%25%2020%25%2C%20rgba(0%2C%20183%2C%20255%2C%200.35)%2C%20transparent%2055%25)%2Cradial-gradient(circle%20at%2080%25%2030%25%2C%20rgba(0%2C%20255%2C%20188%2C%200.2)%2C%20transparent%2050%25)%2Cradial-gradient(circle%20at%2050%25%2080%25%2C%20rgba(138%2C%2087%2C%20255%2C%200.35)%2C%20transparent%2060%25)%2C%23050917%3B%7D%23root%20%7Bmin-height%3A%20100vh%3B%7Dbody%2Cbutton%2Cinput%2Ctextarea%20%7Bfont-family%3A%20inherit%3B%7D.app-shell%20%7Bdisplay%3A%20grid%3Bgrid-template-columns%3A%20minmax(0%2C%201.3fr)%20minmax(0%2C%201fr)%3Bmin-height%3A%20100vh%3Bpadding%3A%20clamp(2rem%2C%203vw%2C%203rem)%3Bgap%3A%20clamp(2rem%2C%204vw%2C%203.5rem)%3Bbackground%3A%20linear-gradient(135deg%2C%20rgba(5%2C%2014%2C%2040%2C%200.95)%2C%20rgba(7%2C%2022%2C%2059%2C%200.8))%2Cradial-gradient(circle%20at%2020%25%20-10%25%2C%20rgba(0%2C%20217%2C%20255%2C%200.25)%2C%20transparent%2045%25)%2Cradial-gradient(circle%",
+    "20at%20100%25%20100%25%2C%20rgba(41%2C%20196%2C%20180%2C%200.2)%2C%20transparent%2055%25)%2C%23050917%3B%7D%40media%20(max-width%3A%201080px)%20%7B.app-shell%20%7Bgrid-template-columns%3A%201fr%3Bpadding%3A%20clamp(1.5rem%2C%204vw%2C%202rem)%3B%7D.hero-panel%20%7Bdisplay%3A%20none%3B%7D%7D.hero-panel%20%7Bposition%3A%20relative%3Bborder-radius%3A%2032px%3Bbackground%3A%20rgba(5%2C%209%2C%2023%2C%200.4)%3Bborder%3A%201px%20solid%20rgba(93%2C%20141%2C%20255%2C%200.18)%3Boverflow%3A%20hidden%3Bdisplay%3A%20flex%3Bflex-direction%3A%20column%3Bjustify-content%3A%20flex-end%3Bpadding%3A%20clamp(2rem%2C%204vw%2C%203.75rem)%3Bbackdrop-filter%3A%20blur(14px)%3B%7D.hero-copy%20%7Bmax-width%3A%2026rem%3Bz-index%3A%202%3B%7D.hero-copy%20h1%20%7Bmargin%3A%200%200%200.75rem%3Bfont-weight%3A%20600%3Bfont-size%3A%20clamp(2.2rem%2C%204vw%2C%202.9rem)%3Bletter-spacing%3A%20-0.03em%3B%7D.hero-copy%20p%20%7Bmargin%3A%200%3Bcolor%3A%20rgba(209%2C%20220%2C%20255%2C%200.72)%3Bfont-size%3A%201rem%3Bline-height%3A%201.6%3B%7D.constellation%20%7Bposition%3A%20absolute%3Binset%3A%200%3B%7D.constellation%3A%3Abefore%20%7Bcontent%3A%20''%3Bposition%3A%20absolute%3Binset%3A%2010%25%2012%25%2018%25%2012%25%3Bbackground%3A%20radial-gradient(circle%20at%2015%25%2015%25%2C%20rgba(0%2C%20217%2C%20255%2C%200.32)%2C%20transparent%2060%25)%2Cradial-gradient(circle%20at%2070%25%2020%25%2C%20rgba(103%2C%2060%2C%20255%2C%200.35)%2C%20transparent%2055%25)%2Cradial-gradient(circle%20at%2035%25%2075%25%2C%20rgba(27%2C%20239%2C%20192%2C%200.28)%2C%20transparent%2060%25)%3Bopacity%3A%200.8%3Bfilter%3A%20blur(12px)%3B%7D.constellation%3A%3Aafter%20%7Bcontent%3A%20''%3Bposition%3A%20absolute%3Binset%3A%200%3Bbackground%3A%20url('data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20width%3D%22680%22%20height%3D%22520%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%253E%253Cg%20stroke%3D%22rgba(120%2C169%2C255%2C0.22)%22%20stroke-width%3D%221.2%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%253E%253Cpath%20d%3D%22M",
+    "90%20120L190%2080L290%20130L380%2080L480%20110L570%2070%22%2F%253E%253Cpath%20d%3D%22M110%20260L220%20210L320%20250L420%20190L540%20250L610%20200%22%2F%253E%253Cpath%20d%3D%22M120%20360L210%20420L320%20360L420%20430L520%20360L600%20410%22%2F%253E%253C%2Fg%253E%253C%2Fsvg%253E')center%2Fcover%20no-repeat%3Bopacity%3A%200.3%3B%7D.node%20%7Bposition%3A%20absolute%3Bwidth%3A%2054px%3Bheight%3A%2054px%3Bborder-radius%3A%2050%25%3Bbackground%3A%20linear-gradient(145deg%2C%20rgba(2%2C%20210%2C%20255%2C%200.88)%2C%20rgba(122%2C%2086%2C%20255%2C%200.92))%3Bbox-shadow%3A%200%2012px%2032px%20rgba(18%2C%2033%2C%2094%2C%200.45)%3Bopacity%3A%200.95%3B%7D.node%3A%3Aafter%20%7Bcontent%3A%20''%3Bposition%3A%20absolute%3Binset%3A%2035%25%3Bborder-radius%3A%2050%25%3Bbackground%3A%20%23050b1e%3B%7D%40keyframes%20pulse%20%7B0%25%2C100%25%20%7Btransform%3A%20scale(1)%20translateY(0)%3Bopacity%3A%200.95%3B%7D50%25%20%7Btransform%3A%20scale(1.08)%20translateY(-4px)%3Bopacity%3A%201%3B%7D%7D.node%20%7Banimation%3A%20pulse%206s%20ease-in-out%20infinite%3B%7D.node-1%20%7Btop%3A%2016%25%3Bleft%3A%2018%25%3Banimation-delay%3A%200.4s%3B%7D.node-2%20%7Btop%3A%208%25%3Bleft%3A%2046%25%3Banimation-delay%3A%201.2s%3B%7D.node-3%20%7Btop%3A%2018%25%3Bleft%3A%2068%25%3Banimation-delay%3A%202.6s%3B%7D.node-4%20%7Btop%3A%2032%25%3Bleft%3A%2028%25%3Banimation-delay%3A%203.1s%3B%7D.node-5%20%7Btop%3A%2034%25%3Bleft%3A%2054%25%3Banimation-delay%3A%200.8s%3B%7D.node-6%20%7Btop%3A%2032%25%3Bleft%3A%2078%25%3Banimation-delay%3A%201.7s%3B%7D.node-7%20%7Btop%3A%2048%25%3Bleft%3A%2018%25%3Banimation-delay%3A%202.3s%3B%7D.node-8%20%7Btop%3A%2054%25%3Bleft%3A%2046%25%3Banimation-delay%3A%201.1s%3B%7D.node-9%20%7Btop%3A%2052%25%3Bleft%3A%2074%25%3Banimation-delay%3A%203.2s%3B%7D.node-10%20%7Btop%3A%2068%25%3Bleft%3A%2026%25%3Banimation-delay%3A%201.6s%3B%7D.node-11%20%7Btop%3A%2070%25%3Bleft%3A%2048%25%3Banimation-delay%3A%202.8s%3B%7D.node-12%20%7Btop%3A%2072%25%3Bleft%3A%2070%25%3Banimation-delay%3A%200.9s%3B%7D.",
+    "node-13%20%7Btop%3A%2082%25%3Bleft%3A%2032%25%3Banimation-delay%3A%202.1s%3B%7D.node-14%20%7Btop%3A%2084%25%3Bleft%3A%2062%25%3Banimation-delay%3A%203.4s%3B%7D.auth-panel%20%7Bmax-width%3A%20min(520px%2C%20100%25)%3Bmargin-left%3A%20auto%3Bmargin-right%3A%20auto%3Bbackground%3A%20rgba(4%2C%209%2C%2024%2C%200.8)%3Bborder-radius%3A%2028px%3Bborder%3A%201px%20solid%20rgba(86%2C%20131%2C%20255%2C%200.25)%3Bbox-shadow%3A%200%2030px%2060px%20rgba(9%2C%2016%2C%2038%2C%200.5)%3Bpadding%3A%20clamp(2rem%2C%205vw%2C%203rem)%3Bdisplay%3A%20flex%3Bflex-direction%3A%20column%3Bgap%3A%201.75rem%3Bbackdrop-filter%3A%20blur(18px)%3B%7D.logo%20%7Bdisplay%3A%20flex%3Balign-items%3A%20center%3Bgap%3A%200.75rem%3B%7D.logo-text%20%7Bfont-size%3A%201.4rem%3Bfont-weight%3A%20600%3Bletter-spacing%3A%200.04em%3B%7D.logo-mark%20%7Bwidth%3A%2042px%3Bheight%3A%2042px%3B%7D%23portal-login-title%20%7Bmargin%3A%200%3Bfont-size%3A%20clamp(1.8rem%2C%203vw%2C%202.2rem)%3Bfont-weight%3A%20600%3B%7D.tagline%20%7Bmargin%3A%200%3Bcolor%3A%20rgba(202%2C%20211%2C%20255%2C%200.78)%3B%7D.login-form%20%7Bdisplay%3A%20flex%3Bflex-direction%3A%20column%3Bgap%3A%201rem%3B%7D.field%20%7Bdisplay%3A%20flex%3Bflex-direction%3A%20column%3Bgap%3A%200.45rem%3Bfont-size%3A%200.95rem%3Bcolor%3A%20rgba(202%2C%20211%2C%20255%2C%200.9)%3B%7D.field%20input%20%7Bborder-radius%3A%2014px%3Bborder%3A%201px%20solid%20rgba(99%2C%20133%2C%20255%2C%200.35)%3Bbackground%3A%20rgba(7%2C%2013%2C%2031%2C%200.92)%3Bcolor%3A%20inherit%3Bpadding%3A%200.85rem%201rem%3Bfont-size%3A%201rem%3Btransition%3A%20border-color%200.2s%20ease%2C%20box-shadow%200.2s%20ease%3B%7D.field%20input%3A%3Aplaceholder%20%7Bcolor%3A%20rgba(177%2C%20189%2C%20238%2C%200.55)%3B%7D.field%20input%3Afocus%20%7Boutline%3A%20none%3Bborder-color%3A%20rgba(129%2C%20199%2C%20255%2C%200.7)%3Bbox-shadow%3A%200%200%200%204px%20rgba(84%2C%20159%2C%20255%2C%200.18)%3B%7D.form-meta%20%7Bdisplay%3A%20flex%3Balign-items%3A%20center%3Bjustify-content%3A%20space-between%3Bfont-size%3",
+    "A%200.9rem%3Bcolor%3A%20rgba(177%2C%20189%2C%20238%2C%200.75)%3B%7D.remember%20%7Bdisplay%3A%20inline-flex%3Balign-items%3A%20center%3Bgap%3A%200.45rem%3B%7D.remember%20input%20%7Bwidth%3A%2018px%3Bheight%3A%2018px%3Bborder-radius%3A%206px%3Bborder%3A%201px%20solid%20rgba(99%2C%20133%2C%20255%2C%200.6)%3Bbackground%3A%20rgba(7%2C%2013%2C%2031%2C%200.92)%3Baccent-color%3A%20rgba(123%2C%20192%2C%20255%2C%200.95)%3B%7D.link%20%7Bcolor%3A%20rgba(123%2C%20192%2C%20255%2C%200.95)%3Btext-decoration%3A%20none%3Bfont-weight%3A%20500%3B%7D.link%3Ahover%2C.link%3Afocus%20%7Btext-decoration%3A%20underline%3B%7D.primary-btn%2C.secondary-btn%20%7Bborder%3A%20none%3Bborder-radius%3A%2016px%3Bpadding%3A%200.95rem%201.2rem%3Bfont-size%3A%201rem%3Bfont-weight%3A%20600%3Bcursor%3A%20pointer%3Btransition%3A%20transform%200.18s%20ease%2C%20box-shadow%200.18s%20ease%2C%20filter%200.18s%20ease%3Bdisplay%3A%20inline-flex%3Balign-items%3A%20center%3Bjustify-content%3A%20center%3Bgap%3A%200.5rem%3B%7D.primary-btn%20%7Bbackground%3A%20linear-gradient(135deg%2C%20rgba(74%2C%20141%2C%20255%2C%200.95)%2C%20rgba(118%2C%2070%2C%20255%2C%200.95))%3Bbox-shadow%3A%200%2018px%2038px%20rgba(38%2C%2090%2C%20214%2C%200.45)%3Bcolor%3A%20white%3B%7D.primary-btn%3Ahover%2C.primary-btn%3Afocus%20%7Btransform%3A%20translateY(-1px)%3Bbox-shadow%3A%200%2022px%2044px%20rgba(38%2C%2090%2C%20214%2C%200.5)%3Bfilter%3A%20brightness(1.03)%3B%7D.secondary-btn%20%7Bbackground%3A%20rgba(12%2C%2020%2C%2042%2C%200.95)%3Bborder%3A%201px%20solid%20rgba(118%2C%20160%2C%20255%2C%200.35)%3Bcolor%3A%20rgba(208%2C%20217%2C%20255%2C%200.92)%3Bbox-shadow%3A%200%2018px%2032px%20rgba(7%2C%2015%2C%2035%2C%200.55)%3B%7D.secondary-btn%3Ahover%2C.secondary-btn%3Afocus%20%7Btransform%3A%20translateY(-1px)%3Bborder-color%3A%20rgba(149%2C%20198%2C%20255%2C%200.6)%3Bfilter%3A%20brightness(1.05)%3B%7D.divider%20%7Bposition%3A%20relative%3Btext-align%3A%20center%3Bcolor%3A%20rgba(160%2C%20176%2C%20220%2C%200.55)%3Bfont-size%3A%200.9rem%3B%7D.",
+    "divider%3A%3Abefore%2C.divider%3A%3Aafter%20%7Bcontent%3A%20''%3Bposition%3A%20absolute%3Btop%3A%2050%25%3Bwidth%3A%2038%25%3Bheight%3A%201px%3Bbackground%3A%20linear-gradient(90deg%2C%20transparent%2C%20rgba(109%2C%20144%2C%20211%2C%200.4))%3B%7D.divider%3A%3Abefore%20%7Bleft%3A%200%3B%7D.divider%3A%3Aafter%20%7Bright%3A%200%3Btransform%3A%20scaleX(-1)%3B%7D.secondary-btn%20span%5Brole%3D'img'%5D%20%7Bfont-size%3A%201.25rem%3B%7D%40media%20(max-width%3A%20640px)%20%7B.auth-panel%20%7Bpadding%3A%20clamp(1.75rem%2C%204vw%2C%202rem)%3Bborder-radius%3A%2022px%3B%7D.form-meta%20%7Bflex-direction%3A%20column%3Balign-items%3A%20flex-start%3Bgap%3A%200.75rem%3B%7D.divider%3A%3Abefore%2C.divider%3A%3Aafter%20%7Bwidth%3A%2030%25%3B%7D%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Cdiv%20id%3D%22root%22%3E%3Cdiv%20class%3D%22app-shell%22%3E%3Cdiv%20class%3D%22hero-panel%22%20aria-hidden%3D%22true%22%3E%3Cdiv%20class%3D%22constellation%22%3E%3Cspan%20class%3D%22node%20node-1%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-2%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-3%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-4%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-5%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-6%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-7%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-8%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-9%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-10%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-11%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-12%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3D%22node%20node-13%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3Cspan%20class%3",
+    "D%22node%20node-14%22%20aria-hidden%3D%22true%22%3E%3C%2Fspan%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22hero-copy%22%3E%3Ch1%3EIntelligent%20assurance%20for%20the%20AI%20era%3C%2Fh1%3E%3Cp%3EAuditLab%20orchestrates%20risk%2C%20compliance%2C%20and%20analytics%20insights%20so%20your%20team%20can%20makeconfident%20decisions%20faster.%3C%2Fp%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3Cmain%20class%3D%22auth-panel%22%20aria-labelledby%3D%22portal-login-title%22%3E%3Cdiv%20class%3D%22logo%22%3E%3Csvgclass%3D%22logo-mark%22xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22viewBox%3D%220%200%20120%20120%22role%3D%22img%22aria-labelledby%3D%22auditlab-logo-title%22%3E%3Ctitle%20id%3D%22auditlab-logo-title%22%3EAuditLab%20Logo%3C%2Ftitle%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22auditlab-gradient%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2361d5ff%22%20%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%239a6bff%22%20%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2252%22%20fill%3D%22url(%23auditlab-gradient)%22%20opacity%3D%220.18%22%3E%3C%2Fcircle%3E%3Cpathfill%3D%22none%22stroke%3D%22url(%23auditlab-gradient)%22stroke-width%3D%226%22stroke-linecap%3D%22round%22stroke-linejoin%3D%22round%22d%3D%22M30%2054c0-16.569%2013.431-30%2030-30s30%2013.431%2030%2030%22%3E%3C%2Fpath%3E%3Cpathfill%3D%22none%22stroke%3D%22%23ffffff%22stroke-width%3D%226%22stroke-linecap%3D%22round%22stroke-linejoin%3D%22round%22d%3D%22M36%2074c6%208%2016%2012%2024%2012s18-4%2024-12%22opacity%3D%220.9%22%3E%3C%2Fpath%3E%3Ccircle%20cx%3D%2242%22%20cy%3D%2253%22%20r%3D%225%22%20fill%3D%22%23ffffff%22%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2278%22%20cy%3D%2253%22%20r%3D%225%22%20fill%3D%22%23ffffff%22%3E%3C%2Fcircle%3E%3Cpathfill%3D%22none%22stroke%3D%22%23ffffff%22stroke-width%3D%226%22stroke-linecap%3D%22round%22stroke-linejoin%3D%22round%22d%3D%22M48%2036l12%2018%2012-18%22opacity%3D%220.9%22%3E%3C%2F",
+    "path%3E%3C%2Fsvg%3E%3Cspan%20class%3D%22logo-text%22%3EAuditLab%3C%2Fspan%3E%3C%2Fdiv%3E%3Ch2%20id%3D%22portal-login-title%22%3EWelcome%20back%3C%2Fh2%3E%3Cp%20class%3D%22tagline%22%3ESign%20in%20to%20continue%20to%20the%20AuditLab%20intelligence%20workspace.%3C%2Fp%3E%3Cform%20class%3D%22login-form%22%3E%3Clabel%20class%3D%22field%22%20for%3D%22email%22%3E%3Cspan%3EEmail%3C%2Fspan%3E%3Cinput%20id%3D%22email%22%20type%3D%22email%22%20name%3D%22email%22%20placeholder%3D%22you%40auditlab.ai%22%20required%20%2F%3E%3C%2Flabel%3E%3Clabel%20class%3D%22field%22%20for%3D%22password%22%3E%3Cspan%3EPassword%3C%2Fspan%3E%3Cinputid%3D%22password%22type%3D%22password%22name%3D%22password%22placeholder%3D%22%E2%80%A2%E2%80%A2%E2%80%A2%E2%80%A2%E2%80%A2%E2%80%A2%E2%80%A2%E2%80%A2%22minlength%3D%228%22required%2F%3E%3C%2Flabel%3E%3Cdiv%20class%3D%22form-meta%22%3E%3Clabel%20class%3D%22remember%22%3E%3Cinput%20type%3D%22checkbox%22%20name%3D%22remember%22%20%2F%3E%3Cspan%3EKeep%20me%20signed%20in%3C%2Fspan%3E%3C%2Flabel%3E%3Ca%20class%3D%22link%22%20href%3D%22%23forgot%22%3EForgot%20password%3F%3C%2Fa%3E%3C%2Fdiv%3E%3Cbutton%20type%3D%22submit%22%20class%3D%22primary-btn%22%3ESign%20in%3C%2Fbutton%3E%3C%2Fform%3E%3Cdiv%20class%3D%22divider%22%3E%3Cspan%3Eor%3C%2Fspan%3E%3C%2Fdiv%3E%3Cbutton%20type%3D%22button%22%20class%3D%22secondary-btn%22%3E%3Cspan%20role%3D%22img%22%20aria-hidden%3D%22true%22%3E%F0%9F%A4%96%3C%2Fspan%3EContinue%20with%20Microsoft%20Entra%20ID%3C%2Fbutton%3E%3C%2Fmain%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
+  ]
+}
+    </script>
+    <script>
+      const status = document.getElementById('status');
+      const openButton = document.getElementById('open-btn');
+      const downloadLink = document.getElementById('download-link');
+      const inlineCode = document.getElementById('inline-url');
+      const inlineAnchor = document.getElementById('inline-link');
+      const { segments } = JSON.parse(document.getElementById('preview-data').textContent);
+      const inlineUrl = segments.join('');
+      inlineCode.textContent = inlineUrl;
+      inlineAnchor.href = inlineUrl;
+
+      async function requestPreviewUrl() {
+        try {
+          const response = await fetch('live-preview-url.txt', { cache: 'no-store' });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const text = (await response.text()).trim();
+          if (!text.startsWith('data:text/html')) throw new Error('Unexpected preview URL');
+          return text;
+        } catch (error) {
+          console.warn('Falling back to inline preview URL:', error);
+          return inlineUrl;
+        }
+      }
+
+      async function launchPreview(replace = true) {
+        const url = await requestPreviewUrl();
+        if (replace) {
+          window.location.replace(url);
+        } else {
+          window.location.href = url;
+        }
+      }
+
+      launchPreview().catch(() => {
+        status.textContent = 'Automatic redirect was blocked. Click “Open the login preview” instead.';
+      });
+
+      openButton.addEventListener('click', () => launchPreview(false));
+      downloadLink.addEventListener('click', async (event) => {
+        if (downloadLink.dataset.ready) return;
+        event.preventDefault();
+        const url = await requestPreviewUrl();
+        const blob = new Blob([url], { type: 'text/plain' });
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = 'live-preview-url.txt';
+        downloadLink.dataset.ready = 'true';
+        downloadLink.click();
+      });
+    </script>
+  </body>
+</html>
